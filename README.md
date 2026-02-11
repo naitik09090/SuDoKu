@@ -2,7 +2,7 @@
 
 Welcome to the next evolution of Sudoku. Immerse yourself in a deep-space environment where logic meets the cosmos. This isn't just a game; it's a journey through the stars, built with modern web technologies to deliver a premium, relaxing, and visually stunning experience.
 
-![Cosmic Sudoku Banner](https://img.shields.io/badge/Status-Operational-00f2ff?style=for-the-badge) ![React](https://img.shields.io/badge/Built%20With-React-61DAFB?style=for-the-badge&logo=react)
+![favicon.png](https://img.shields.io/badge/Status-Operational-00f2ff?style=for-the-badge) ![React](https://img.shields.io/badge/Built%20With-React-61DAFB?style=for-the-badge&logo=react)
 
 ## 🚀 Mission Briefing
 
