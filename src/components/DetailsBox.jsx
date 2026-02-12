@@ -2,13 +2,12 @@ import React, { useContext, useState } from 'react'
 import NewGameModal from './NewGameModal';
 import { BoardContext } from '../context/boardContext';
 import Timer from './Timer';
-import { solve } from '../helper/solver';
 import { isValidSudoku } from '../helper/checkValid';
 
 const DetailsBox = ({ isOpen, onToggle }) => {
 
   const [showError, setShowError] = useState(false)
-  const { state, setSolvedBoard, handleFinishEntering, setNewGame } = useContext(BoardContext)
+  const { state, handleFinishEntering, setNewGame } = useContext(BoardContext)
 
   const handleCloseModal = () => {
     onToggle(false);
@@ -26,12 +25,6 @@ const DetailsBox = ({ isOpen, onToggle }) => {
   const startNewGame = () => {
     const cells = getDifficultyCells(state.difficulty);
     setNewGame(cells);
-  };
-
-  function solveSudoku() {
-    let newBoard = state.actualBoard.map((row) => [...row]);
-    solve(newBoard);
-    setSolvedBoard(newBoard);
   };
 
   function handleSubmit() {

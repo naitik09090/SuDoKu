@@ -9,10 +9,6 @@ const BoardView = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { state, setNewGame } = useContext(BoardContext);
 
-  const handleNewGame = () => {
-    setIsModalOpen(true);
-  };
-
   const getDifficultyCells = (difficulty) => {
     switch (difficulty) {
       case 'Easy': return 40;
