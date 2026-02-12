@@ -1010,7 +1010,8 @@ body {
   }
 
   .App {
-    margin-top: 80px;
+    margin-top: 0;
+    padding-top: 60px;
   }
 
   .game {
@@ -1026,23 +1027,6 @@ body {
   .keyboard {
     gap: 8px;
     padding: 10px;
-  }
-
-  .game-won {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 6000;
-    background: rgba(5, 5, 16, 0.95);
-    border: none;
-    border-radius: 0;
-  }
-
-  .victory-text {
-    font-size: 3.5rem;
-    letter-spacing: 5px;
   }
 }
 
