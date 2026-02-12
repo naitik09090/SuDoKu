@@ -7,10 +7,24 @@ import { BoardContext } from '../context/boardContext';
 
 const BoardView = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { state } = useContext(BoardContext);
+  const { state, setNewGame } = useContext(BoardContext);
 
   const handleNewGame = () => {
     setIsModalOpen(true);
+  };
+
+  const getDifficultyCells = (difficulty) => {
+    switch (difficulty) {
+      case 'Easy': return 40;
+      case 'Medium': return 50;
+      case 'Hard': return 60;
+      default: return 40;
+    }
+  };
+
+  const startNewGame = () => {
+    const cells = getDifficultyCells(state.difficulty);
+    setNewGame(cells);
   };
 
   return (
@@ -24,7 +38,7 @@ const BoardView = () => {
       </div>
       <DetailsBox isOpen={isModalOpen} onToggle={setIsModalOpen} />
       <Board />
-      {state.gameWon ? <GameWon onNewGame={handleNewGame} /> : <Keyboard />}
+      {state.gameWon ? <GameWon onNewGame={startNewGame} /> : <Keyboard />}
     </div>
   )
 }

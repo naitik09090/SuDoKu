@@ -8,10 +8,24 @@ import { isValidSudoku } from '../helper/checkValid';
 const DetailsBox = ({ isOpen, onToggle }) => {
 
   const [showError, setShowError] = useState(false)
-  const { state, setSolvedBoard, handleFinishEntering } = useContext(BoardContext)
+  const { state, setSolvedBoard, handleFinishEntering, setNewGame } = useContext(BoardContext)
 
   const handleCloseModal = () => {
     onToggle(false);
+  };
+
+  const getDifficultyCells = (difficulty) => {
+    switch (difficulty) {
+      case 'Easy': return 40;
+      case 'Medium': return 50;
+      case 'Hard': return 60;
+      default: return 40;
+    }
+  };
+
+  const startNewGame = () => {
+    const cells = getDifficultyCells(state.difficulty);
+    setNewGame(cells);
   };
 
   function solveSudoku() {
@@ -34,7 +48,7 @@ const DetailsBox = ({ isOpen, onToggle }) => {
   return (
     <div className="detail-box flex-box">
       {!state.isCustomBoard && <Timer />}
-      <div className='button' onClick={() => onToggle(true)}>New Game</div>
+      <div className='button' onClick={startNewGame}>New Game</div>
 
       {isOpen && (
         <div className="overlay">
